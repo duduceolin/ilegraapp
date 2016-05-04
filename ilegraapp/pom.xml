@@ -6,7 +6,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>ilegraapp-bean/ilegraapp-bean</module>
+        <module>ilegraapp-bean</module>
         <module>ilegraapp-application</module>
     </modules>
     <properties>
