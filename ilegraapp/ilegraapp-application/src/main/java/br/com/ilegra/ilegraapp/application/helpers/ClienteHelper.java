@@ -1,6 +1,9 @@
 package br.com.ilegra.ilegraapp.application.helpers;
 
 import br.com.ilegra.ilegraapp.application.base.BaseHelper;
+import br.com.ilegra.ilegraapp.application.exceptions.ConfigException;
+import br.com.ilegra.ilegraapp.application.exceptions.ConfigExceptionFactory;
+import br.com.ilegra.ilegraapp.application.exceptions.ServException;
 import br.com.ilegra.ilegraapp.bean.dtos.Cliente;
 import br.com.ilegra.ilegraapp.bean.utils.ConstanteUtils;
 
@@ -8,24 +11,30 @@ import br.com.ilegra.ilegraapp.bean.utils.ConstanteUtils;
  *
  * @author dudu
  */
-public class ClienteHelper extends BaseHelper{
+public class ClienteHelper extends BaseHelper {
 
     private Cliente cliente;
 
-    public ClienteHelper(String linha) {
+    public ClienteHelper(String linha) throws ServException {
         String[] parametros = linha.split(ConstanteUtils.CARACTERE_DELIMITADOR);
 
         popularCliente(parametros);
     }
 
-    private void popularCliente(String[] params) {
-        Cliente cl = new Cliente();
+    private void popularCliente(String[] params) throws ServException {
 
-        cl.setCnpj(params[1]);
-        cl.setNome(params[2]);
-        cl.setArea(params[3]);
+        try {
+            Cliente cl = new Cliente();
 
-        this.cliente = cl;
+            cl.setCnpj(params[1]);
+            cl.setNome(params[2]);
+            cl.setArea(params[3]);
+
+            this.cliente = cl;
+        } catch (Exception e) {
+            logarException(e);
+            throw new ConfigExceptionFactory().criarException(ConfigException.GR002);
+        }
     }
 
     public Cliente getCliente() {

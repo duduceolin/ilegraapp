@@ -20,4 +20,16 @@ public abstract class BaseHelper {
             log = Logger.getLogger(this.getClass());
         }
     }
+
+    public void logarException(Exception e) {
+        if (log != null) {
+            log.error(e);
+        }
+    }
+
+    public void logarMensagemDebug(String message) {
+        if (log != null && log.isDebugEnabled()) {
+            log.debug(message);
+        }
+    }
 }

@@ -10,7 +10,9 @@ public enum ConfigException {
     /**
      * Campos Obrigatórios não preenchidos
      */
-    GR001("Campos Obrigatórios não preenchidos");
+    GR001("Campos Obrigatórios não preenchidos", TipoErro.VALIDACAO),
+    
+    GR002("Erro no formato da linha", TipoErro.NEGOCIO);
 
     private final String descricao;
 

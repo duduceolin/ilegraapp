@@ -19,6 +19,7 @@ public class Vendedor implements Serializable {
     private String nome;
     private BigDecimal salario;
     private List<Venda> vendas;
+    private BigDecimal totalVendas;
 
     public String getCpf() {
         return cpf;
@@ -50,6 +51,14 @@ public class Vendedor implements Serializable {
 
     public void setVendas(List<Venda> vendas) {
         this.vendas = vendas;
+    }
+
+    public BigDecimal getTotalVendas() {
+        return totalVendas;
+    }
+
+    public void setTotalVendas(BigDecimal totalVendas) {
+        this.totalVendas = totalVendas;
     }
 
 }
