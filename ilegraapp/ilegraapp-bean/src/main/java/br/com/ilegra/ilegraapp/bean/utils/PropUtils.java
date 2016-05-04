@@ -10,8 +10,6 @@ import java.util.Properties;
  */
 public abstract class PropUtils {
 
-    public static final String NOME_PROPRIEDADE_ULTIMA_ATUALIZACAO = "prop.ultima";
-
     public static Object lerPropriedades(String enderecoProp, String codigoProp) throws Exception {
         Properties properties = new Properties();
 

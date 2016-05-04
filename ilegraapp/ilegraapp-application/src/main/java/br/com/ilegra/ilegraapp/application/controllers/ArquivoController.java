@@ -4,6 +4,7 @@ import br.com.ilegra.ilegraapp.application.base.BaseController;
 import br.com.ilegra.ilegraapp.application.helpers.MensagemHelper;
 import br.com.ilegra.ilegraapp.application.helpers.ValidadorHelper;
 import br.com.ilegra.ilegraapp.bean.utils.DateUtils;
+import br.com.ilegra.ilegraapp.bean.utils.MensagemUtils;
 import java.util.Date;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -23,20 +24,15 @@ public class ArquivoController extends BaseController implements Job {
     @Override
     public void processar() {
 
-        if (log != null && log.isDebugEnabled()) {
-            log.debug("Inicializou processamento: " + DateUtils.gerarDataFormatada(new Date()));
-        }
-        
+        logarMensagemDebug(MensagemUtils.MSG_INICIALIZACAO_PROCESSAMENTO.replace("?", DateUtils.gerarDataFormatada(new Date())));
+
         Boolean processar = new ValidadorHelper().realizarProcessamento();
-        
-        if (processar){
+
+        if (processar) {
             new MensagemHelper();
         }
-        
-        if (log != null && log.isDebugEnabled()) {
-            log.debug("Finalizou processamento: " + DateUtils.gerarDataFormatada(new Date()));
-        }
+
+        logarMensagemDebug(MensagemUtils.MSG_FINALIZACAO_PROCESSAMENTO.replace("?", DateUtils.gerarDataFormatada(new Date())));
     }
-    
 
 }

@@ -11,8 +11,10 @@ public enum ConfigException {
      * Campos Obrigatórios não preenchidos
      */
     GR001("Campos Obrigatórios não preenchidos", TipoErro.VALIDACAO),
-    
-    GR002("Erro no formato da linha", TipoErro.NEGOCIO);
+    GR002("Erro no formato da linha", TipoErro.NEGOCIO),
+    GR003("O diretório de entrada não existe.", TipoErro.NEGOCIO),
+    GR004("O diretório de saída não existe.", TipoErro.NEGOCIO),
+    GR005("Ocorreu um problema ao gerar o arquivo de saída.", TipoErro.DESCONHECIDO);
 
     private final String descricao;
 

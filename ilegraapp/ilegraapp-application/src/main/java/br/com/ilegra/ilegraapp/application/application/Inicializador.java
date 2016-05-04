@@ -13,15 +13,16 @@ import br.com.ilegra.ilegraapp.application.controllers.GerenciadorController;
  */
 public class Inicializador {
     
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             GerenciadorController gerenciador = new GerenciadorController();
             gerenciador.setCaminho("D:\\");
+            gerenciador.setTempo(15);
             gerenciador.processar();
         } catch (Exception e) {
             e.printStackTrace();
         }
- 
+        
     }
     
 }

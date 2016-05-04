@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.ilegra.ilegraapp.bean.dtos;
 
 import br.com.ilegra.ilegraapp.bean.enums.TipoLinha;
@@ -13,6 +8,8 @@ import java.io.Serializable;
  * @author dudu
  */
 public class MensagemAbstrata implements Serializable {
+
+    private static final long serialVersionUID = -952301333223137126L;
 
     private TipoLinha tipoLinha;
 
@@ -30,6 +27,11 @@ public class MensagemAbstrata implements Serializable {
 
     public void setTipoLinha(TipoLinha tipoLinha) {
         this.tipoLinha = tipoLinha;
+    }
+
+    @Override
+    public String toString() {
+        return "MensagemAbstrata{" + "tipoLinha=" + tipoLinha + '}';
     }
 
 }

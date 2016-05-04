@@ -15,12 +15,25 @@ public class ClienteHelper extends BaseHelper {
 
     private Cliente cliente;
 
+    /**
+     * Método para separar os parâmetros da linha pelo delimitador definido.
+     *
+     * @param linha
+     * @throws ServException
+     */
     public ClienteHelper(String linha) throws ServException {
         String[] parametros = linha.split(ConstanteUtils.CARACTERE_DELIMITADOR);
 
         popularCliente(parametros);
     }
 
+    /**
+     * Método para conversão do conteúdo de uma linha do tipo CLIENTE em um
+     * objeto Cliente.
+     *
+     * @param params
+     * @throws ServException
+     */
     private void popularCliente(String[] params) throws ServException {
 
         try {

@@ -19,12 +19,25 @@ public class VendedorHelper extends BaseHelper {
     
     private Vendedor vendedor;
     
+    /**
+     * Método para separar os parâmetros da linha pelo delimitador definido.
+     *
+     * @param linha
+     * @throws ServException
+     */
     public VendedorHelper(String linha) throws ServException {
         String[] parametros = linha.split(ConstanteUtils.CARACTERE_DELIMITADOR);
         
         popularVendedor(parametros);
     }
     
+    /**
+     * Método para conversão do conteúdo de uma linha do tipo VENDEDOR em um objeto
+     * Vendedor.
+     *
+     * @param params
+     * @throws ServException
+     */
     private void popularVendedor(String[] params) throws ServException {
         try {
             Vendedor vend = new Vendedor();

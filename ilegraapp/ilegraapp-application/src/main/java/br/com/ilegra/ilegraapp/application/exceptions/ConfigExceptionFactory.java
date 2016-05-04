@@ -20,6 +20,11 @@ public class ConfigExceptionFactory {
         return new ServException(ex.name(), ex.getDescricao(), ex.getTipoErro());
     }
 
+    /**
+     * Mensagem de exemplo de log para exceptions Serv.
+     * @param e
+     * @return 
+     */
     public static String criarMensagemLog(ServException e) {
         return e.getCodErro() + " - " + e.getMensagem() + " - " + e.getTipoErro().name();
     }

@@ -15,7 +15,7 @@ public abstract class ConstanteUtils {
     public static final String GRUPO_ATV = "grupoIlegraTask";
 
     //Tempo de intervalo de execução da atividade.
-    public static final String CRON_ATV = "0/10 * * * * ?";
+    public static final String CRON_ATV = "0/$ * * * * ?";
 
     //Arquivo de configuração inicial
     public static final String NOME_ARQUIVO_CONFIG = "config.properties";
@@ -32,6 +32,9 @@ public abstract class ConstanteUtils {
     //Caminho definido na entrada
     public static String CAMINHO = "";
 
+    //Tempo de intervalo de execução definido na entrada
+    public static Integer INTERVALO;
+    
     //Salva a última data que um processamento foi realizado
     public static Date DATA_ULTIMA_EXECUCAO;
 }

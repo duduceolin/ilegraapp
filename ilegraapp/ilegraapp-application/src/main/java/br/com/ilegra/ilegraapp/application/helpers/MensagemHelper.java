@@ -2,6 +2,7 @@ package br.com.ilegra.ilegraapp.application.helpers;
 
 import br.com.ilegra.ilegraapp.application.base.BaseHelper;
 import br.com.ilegra.ilegraapp.bean.utils.ConstanteUtils;
+import br.com.ilegra.ilegraapp.bean.utils.MensagemUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,10 +17,10 @@ public class MensagemHelper extends BaseHelper {
     private List<File> listaArquivos;
 
     public MensagemHelper() {
+
         if (pesquisarArquivos()) {
-            //iniciar exec
             ConstanteUtils.DATA_ULTIMA_EXECUCAO = new Date();
-            
+
             for (File file : listaArquivos) {
                 OrquestradorHelper helper = new OrquestradorHelper();
                 helper.setArquivoProcessamento(file);
@@ -27,9 +28,10 @@ public class MensagemHelper extends BaseHelper {
                 t1.start();
             }
 
-        } else if (log != null && log.isDebugEnabled()) {
-            log.debug("Não existem arquivos para serem processados.");
+        } else {
+            logarMensagemDebug(MensagemUtils.MSG_SEM_ARQUIVOS);
         }
+
     }
 
     private Boolean pesquisarArquivos() {
