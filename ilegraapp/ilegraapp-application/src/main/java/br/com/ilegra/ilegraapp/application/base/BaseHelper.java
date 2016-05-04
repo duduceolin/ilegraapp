@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
  *
  * @author dudu
  */
-public class BaseHelper {
+public abstract class BaseHelper {
 
     protected Logger log;
 

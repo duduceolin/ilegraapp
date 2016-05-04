@@ -26,6 +26,9 @@ public abstract class ConstanteUtils {
     //Endereco da pasta de saida (definido assim no doc)
     public static final String ENDERECO_PASTA_OUT = "data\\out\\";
 
+    //Caractere que delimita uma informação da linha que será importada
+    public static final String CARACTERE_DELIMITADOR = "ç";
+    
     //Caminho definido na entrada
     public static String CAMINHO = "";
 

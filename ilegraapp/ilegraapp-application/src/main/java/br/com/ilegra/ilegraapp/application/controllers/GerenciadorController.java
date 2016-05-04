@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.ilegra.ilegraapp.application.controllers;
 
 import br.com.ilegra.ilegraapp.application.base.BaseController;
 import br.com.ilegra.ilegraapp.bean.utils.ConstanteUtils;
-import br.com.ilegra.ilegraapp.bean.utils.PropUtils;
-import java.util.Date;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
@@ -35,7 +28,7 @@ public class GerenciadorController extends BaseController {
         try {
 
             ConstanteUtils.CAMINHO = caminho;
-            ConstanteUtils.DATA_ULTIMA_EXECUCAO = new Date();
+            ConstanteUtils.DATA_ULTIMA_EXECUCAO = null;
 
             JobDetail job = JobBuilder.newJob(ArquivoController.class).withIdentity(ConstanteUtils.NOME_ATV, ConstanteUtils.GRUPO_ATV).build();
             Trigger trigger = TriggerBuilder.newTrigger().withIdentity(ConstanteUtils.NOME_ATV, ConstanteUtils.GRUPO_ATV).withSchedule(CronScheduleBuilder.cronSchedule(ConstanteUtils.CRON_ATV)).build();
