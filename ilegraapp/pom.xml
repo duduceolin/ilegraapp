@@ -8,7 +8,8 @@
     <modules>
         <module>ilegraapp-bean</module>
         <module>ilegraapp-application</module>
-    </modules>
+    <module>ilegraapp-desk</module>
+  </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

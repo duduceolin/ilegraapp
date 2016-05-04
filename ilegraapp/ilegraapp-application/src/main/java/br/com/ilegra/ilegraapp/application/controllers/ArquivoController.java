@@ -1,7 +1,9 @@
 package br.com.ilegra.ilegraapp.application.controllers;
 
 import br.com.ilegra.ilegraapp.application.base.BaseController;
-import br.com.ilegra.ilegraapp.application.utils.DateUtils;
+import br.com.ilegra.ilegraapp.application.helpers.MensagemHelper;
+import br.com.ilegra.ilegraapp.application.helpers.ValidadorHelper;
+import br.com.ilegra.ilegraapp.bean.utils.DateUtils;
 import java.util.Date;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -25,9 +27,16 @@ public class ArquivoController extends BaseController implements Job {
             log.debug("Inicializou processamento: " + DateUtils.gerarDataFormatada(new Date()));
         }
         
+        Boolean processar = new ValidadorHelper().realizarProcessamento();
+        
+        if (processar){
+            new MensagemHelper();
+        }
+        
         if (log != null && log.isDebugEnabled()) {
             log.debug("Finalizou processamento: " + DateUtils.gerarDataFormatada(new Date()));
         }
     }
+    
 
 }

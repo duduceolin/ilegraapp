@@ -16,6 +16,7 @@ public class Inicializador {
     public static void main(String[] args){
         try {
             GerenciadorController gerenciador = new GerenciadorController();
+            gerenciador.setCaminho("D:\\");
             gerenciador.processar();
         } catch (Exception e) {
             e.printStackTrace();

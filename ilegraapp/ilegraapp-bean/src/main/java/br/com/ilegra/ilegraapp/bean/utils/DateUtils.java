@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ilegra.ilegraapp.application.utils;
+package br.com.ilegra.ilegraapp.bean.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
