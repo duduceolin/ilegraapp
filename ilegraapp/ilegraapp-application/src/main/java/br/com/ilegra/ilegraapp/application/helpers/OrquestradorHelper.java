@@ -30,6 +30,11 @@ public class OrquestradorHelper extends BaseHelper implements Runnable {
     private List<Venda> vendas;
     private List<Cliente> clientes;
 
+    @Override
+    public void run() {
+        processarArquivo();
+    }
+
     public void processarArquivo() {
 
         inicializarListas();
@@ -116,8 +121,7 @@ public class OrquestradorHelper extends BaseHelper implements Runnable {
         for (Vendedor vendedor : vendedores) {
             if (nome.equals(vendedor.getNome())) {
                 vendedor.getVendas().add(venda);
-                BigDecimal totalVenda = venda.getProduto().getPreco().multiply(new BigDecimal(venda.getQuantidade()));
-                vendedor.setTotalVendas(vendedor.getTotalVendas().add(totalVenda));
+                vendedor.setTotalVendas(vendedor.getTotalVendas().add(venda.getTotalVenda()));
                 return Boolean.TRUE;
             }
         }
@@ -144,11 +148,6 @@ public class OrquestradorHelper extends BaseHelper implements Runnable {
         this.clientes = new ArrayList<>();
         this.vendas = new ArrayList<>();
         this.vendedores = new ArrayList<>();
-    }
-
-    @Override
-    public void run() {
-        processarArquivo();
     }
 
     public File getArquivoProcessamento() {

@@ -6,6 +6,8 @@
 package br.com.ilegra.ilegraapp.bean.dtos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.List;
 
 /**
  *
@@ -14,9 +16,9 @@ import java.io.Serializable;
 public class Venda implements Serializable {
 
     private Integer id;
-    private Produto produto;
-    private Integer quantidade;
+    private List<Produto> produtos;
     private Vendedor vendedor;
+    private BigDecimal totalVenda;
 
     public Integer getId() {
         return id;
@@ -26,20 +28,20 @@ public class Venda implements Serializable {
         this.id = id;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
-    public Integer getQuantidade() {
-        return quantidade;
+    public BigDecimal getTotalVenda() {
+        return totalVenda;
     }
 
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
+    public void setTotalVenda(BigDecimal totalVenda) {
+        this.totalVenda = totalVenda;
     }
 
     public Vendedor getVendedor() {

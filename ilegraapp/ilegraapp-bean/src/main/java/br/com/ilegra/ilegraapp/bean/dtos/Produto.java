@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 public class Produto implements Serializable {
 
     private Integer id;
+    private Integer quantidade;
     private BigDecimal preco;
 
     public Integer getId() {
@@ -25,12 +26,25 @@ public class Produto implements Serializable {
         this.id = id;
     }
 
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
     public BigDecimal getPreco() {
         return preco;
     }
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
+    }
+
+    public BigDecimal getCustoTotal() {
+        BigDecimal custoTotal = preco.multiply(new BigDecimal(quantidade.toString()));
+        return custoTotal;
     }
 
 }

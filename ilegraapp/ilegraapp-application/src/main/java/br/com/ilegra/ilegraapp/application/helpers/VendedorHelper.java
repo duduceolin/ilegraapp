@@ -8,6 +8,7 @@ import br.com.ilegra.ilegraapp.bean.dtos.Venda;
 import br.com.ilegra.ilegraapp.bean.dtos.Vendedor;
 import br.com.ilegra.ilegraapp.bean.utils.ConstanteUtils;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -32,6 +33,7 @@ public class VendedorHelper extends BaseHelper {
             vend.setNome(params[2]);
             vend.setSalario(new BigDecimal(params[3]));
             vend.setVendas(new ArrayList<Venda>());
+            vend.setTotalVendas(new BigDecimal(BigInteger.ZERO));
             
             this.vendedor = vend;
             
